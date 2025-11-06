@@ -13,18 +13,49 @@ rwheel = 40; %need to edit this
 lbwheel = -40;
 rbwheel = -50;
 threshhold = 70;
+brick.SetColorMode(4,2);
 
-%brick.SetColorMode(2,2);
-
+ 
 while true
-  brick.MoveMotor('B',lwheel);
-  brick.MoveMotor('C',rwheel);
-
   touch = brick.TouchPressed(1);
-  %color = brick.ColorCode('D');
+  color = brick.ColorCode(4);
   distance = brick.UltrasonicDist(3); 
   display(touch)
   display(distance)
+  display(color)
+
+  brick.MoveMotor('B',lwheel);
+  brick.MoveMotor('C',rwheel);
+      if color == 5                      % If color is red stop for 1 sec                  
+    
+        brick.StopMotor('BC', 'Brake'); % Brake to prevent going off course
+        pause(1); % wait 1 second
+        brick.MoveMotor('B',lwheel);
+        brick.MoveMotor('C',rwheel);
+        pause(1);
+      end
+      if color == 2 % If the color sensor sees blue
+        brick.StopMotor('BC', 'Brake'); % Brake to prevent going off course
+        % Beep two times
+        beep(brick);
+        beep(brick);
+        pause(5);
+      end
+      if color == 3 % If the color sensor sees green
+        brick.StopMotor('BC', 'Brake'); % Brake to prevent going off course
+        % Beep three times
+        beep(brick);
+        pause(0.1);
+        beep(brick);
+        pause(0.1);
+        beep(brick);
+        pause(5);
+      end
+
+      
+      
+
+
   if touch ==1
     
     brick.StopMotor('BC', 'Brake');
