@@ -1,0 +1,22 @@
+global key
+InitKeyboard();
+while true
+    pause(0.1);
+    switch key
+        case 'uparrow'
+            %disp('Up');
+            brick.MoveMotor('B', 20);
+            brick.MoveMotor('C', 20);
+            
+        case 'downarrow'
+            %disp('Down');
+            brick.MoveMotor('B', -20);
+            brick.MoveMotor('C', -20);
+            
+        case 'leftarrow'
+            brick.MoveMotor('B', 10);
+            brick.MoveMotor('C', -10);
+            
+        case 'rightarrow'
+            brick.MoveMotor('B', -10);
+            brick.MoveMotor('C', 10);
