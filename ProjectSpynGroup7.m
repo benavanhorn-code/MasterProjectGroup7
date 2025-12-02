@@ -34,23 +34,24 @@ while true
         brick.MoveMotor('C',rwheel);
         pause(1);
       end
-      if color == 2 % If the color sensor sees blue
-        brick.StopMotor('BC', 'Brake'); % Brake to prevent going off course
+      %{if color == 2 % If the color sensor sees blue
+        %brick.StopMotor('BC', 'Brake'); % Brake to prevent going off course
         % Beep two times
-        beep(brick);
-        beep(brick);
-        pause(5);
-      end
-      if color == 3 % If the color sensor sees green
-        brick.StopMotor('BC', 'Brake'); % Brake to prevent going off course
+        %beep(brick);
+        %beep(brick);
+        %pause(5);
+      %end
+      %if color == 3 % If the color sensor sees green
+        %brick.StopMotor('BC', 'Brake'); % Brake to prevent going off course
         % Beep three times
-        beep(brick);
-        pause(0.1);
-        beep(brick);
-        pause(0.1);
-        beep(brick);
-        pause(5);
-      end
+        %beep(brick);
+        %pause(0.1);
+       % beep(brick);
+        %pause(0.1);
+        %beep(brick);
+        %pause(5);
+      %end
+      
 
       
       
@@ -64,7 +65,7 @@ while true
     brick.MoveMotor('C', rbwheel);
     pause(1);
     brick.StopMotor('BC', 'Brake');
-    brick.MoveMotor('C', 40);
+    brick.MoveMotor('C', 35);
 
     pause(2.2); %turning time, which we can change as needed
     brick.StopMotor('C','Brake');
